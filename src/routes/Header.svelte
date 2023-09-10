@@ -31,9 +31,9 @@
 >
 	<button
 		on:click={() => restart()}
-		class="block cursor-pointer flex items-center gap-2 group transition-all duration-300 hover:text-orange-300"
+		class="cursor-pointer flex items-center gap-2 group transition-all duration-300 hover:text-orange-300"
 	>
-		<h1 class="flex items-center gap-2 text-2xl font-extrabold">
+		<h1 class="flex items-center gap-2 text-2xl font-bold">
 			<div
 				class="h-10 overflow-hidden rounded-full border-4 transition-all duration-300 group-hover:border-orange-300"
 			>
@@ -41,7 +41,7 @@
 			</div>
 			文新社
 		</h1>
-		<span class="text-xl font-extrabold"> ‧ 書本心理測驗 </span>
+		<span class="text-xl font-bold"> ‧ 書本心理測驗 </span>
 	</button>
 
 	<nav>
