@@ -4,10 +4,10 @@
 	import lnmc from '$lib/images/lnmc.jpg';
 </script>
 
-<div class="app bg-sky-100 min-h-screen flex flex-col">
+<div class="overflow-hidden bg-sky-100 min-h-screen flex flex-col">
 	<Header />
 	<main
-		class="grow py-4 shrink basis-auto min-h-0 flex flex-col items-center justify-start w-96 mx-auto"
+		class="grow py-4 px-2 shrink basis-auto min-h-0 flex flex-col items-center justify-start mx-auto"
 	>
 		<slot />
 	</main>

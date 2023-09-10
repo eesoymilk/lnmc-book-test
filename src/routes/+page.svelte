@@ -52,7 +52,7 @@
 		<span slot="body">
 			{currentQuestion.body}
 		</span>
-		<div class="flex flex-col gap-2 p-2" slot="choices">
+		<div class="flex flex-col gap-2" slot="choices">
 			{#each currentQuestion.choices as choice, i}
 				<ChoiceButton on:click={() => answer(i)}>
 					{choice.body}
