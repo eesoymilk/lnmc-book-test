@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import lnmcLogo from '$lib/images/lnmc_logo.jpg';
+	import { answers, result } from '../stores';
 
 	interface NavItem {
 		name?: string;
@@ -18,24 +19,30 @@
 			icon: { icon: 'mdi:instagram', class: 'text-red-500 hover:text-red-700 transition-all' }
 		}
 	];
+
+	const restart = () => {
+		answers.update(() => []);
+		result.update(() => undefined);
+	};
 </script>
 
-<header class="flex p-4 text-white items-center justify-between bg-sky-300 sm:flex-row flex-col">
-	<div class="flex items-center gap-2">
-		<a href="https://www.facebook.com/profile.php?id=100085577854427" target="_blank" class="group">
-			<h1
-				class="flex items-center gap-2 text-2xl transition-all duration-300 font-extrabold group-hover:text-orange-300"
+<header
+	class="flex py-4 text-white items-center justify-between bg-sky-300 sm:flex-row flex-col md:px-12 px-4"
+>
+	<button
+		on:click={() => restart()}
+		class="block cursor-pointer flex items-center gap-2 group transition-all duration-300 hover:text-orange-300"
+	>
+		<h1 class="flex items-center gap-2 text-2xl font-extrabold">
+			<div
+				class="h-10 overflow-hidden rounded-full border-4 transition-all duration-300 group-hover:border-orange-300"
 			>
-				<div
-					class="h-10 overflow-hidden rounded-full border-4 transition-all duration-300 group-hover:border-orange-300"
-				>
-					<img class="h-full" src={lnmcLogo} alt="lnmc" />
-				</div>
-				文新社
-			</h1>
-		</a>
+				<img class="h-full" src={lnmcLogo} alt="lnmc" />
+			</div>
+			文新社
+		</h1>
 		<span class="text-xl font-extrabold"> ‧ 書本心理測驗 </span>
-	</div>
+	</button>
 
 	<nav>
 		<ul class="text-xl h-full font-semibold flex items-center gap-2">

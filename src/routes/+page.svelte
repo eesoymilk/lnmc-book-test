@@ -1,23 +1,21 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import type { Book } from '../types';
+	import { bookTestData } from '../bookTestData';
+	import { answers, result } from '../stores';
 	import Button from './Button.svelte';
 	import Question from './Question.svelte';
 	import ChoiceButton from './ChoiceButton.svelte';
 	import Result from './Result.svelte';
 
-	export let data: PageData;
-
 	const booksBaseUrl = 'https://www.books.com.tw';
 
-	let answers: number[] = [];
-	let result: Book | undefined;
-	$: currentQuestion = data.questions.at(answers.length);
-	$: if (answers.length >= data.questions.length) {
-		const resultBookIds = data.questions.reduce(
+	// let answers: number[] = [];
+	// let result: Book | undefined;
+	$: currentQuestion = bookTestData.questions.at($answers.length);
+	$: if ($answers.length >= bookTestData.questions.length) {
+		const resultBookIds = bookTestData.questions.reduce(
 			(bookIds, question, i) =>
-				bookIds.filter((el) => question.choices[answers[i]].bookIds.includes(el)),
-			data.books.map((el) => el.id)
+				bookIds.filter((el) => question.choices[$answers[i]].bookIds.includes(el)),
+			bookTestData.books.map((el) => el.id)
 		);
 
 		console.log(resultBookIds);
@@ -27,27 +25,26 @@
 		} else if (resultBookIds.length === 0) {
 			console.error('no result');
 		} else {
-			result = data.books.find((el) => el.id === resultBookIds[0]);
+			result.update(() => bookTestData.books.find((el) => el.id === resultBookIds[0]));
 		}
 	}
 
-	const answer = (choiceIndex: number) => (answers = [...answers, choiceIndex]);
+	const answer = (choiceIndex: number) => answers.update((prev) => [...prev, choiceIndex]);
 	const restart = () => {
-		answers = [];
-		result = undefined;
-		console.log(answers, result);
+		answers.update(() => []);
+		result.update(() => undefined);
 	};
 </script>
 
 <svelte:head>
-	<title>LNMC | Book Test</title>
-	<meta name="description" content="Literature and New Media Club | Book Test" />
+	<title>文新社 | 書本心理測驗</title>
+	<meta name="description" content="文新社 | 書本心理測驗" />
 </svelte:head>
 
 {#if currentQuestion}
 	<Question>
 		<span slot="number">
-			{answers.length + 1} / {data.questions.length}
+			{$answers.length + 1} / {bookTestData.questions.length}
 		</span>
 		<span slot="body">
 			{currentQuestion.body}
@@ -60,14 +57,14 @@
 			{/each}
 		</div>
 	</Question>
-{:else if result}
-	<Result imageUrl={`${booksBaseUrl}/${result.imagePath}`} imageAlt={`${result.title}封面`}>
-		<span slot="title">{result.title}</span>
+{:else if $result}
+	<Result imageUrl={`${booksBaseUrl}/${$result.imagePath}`} imageAlt={`${$result.title}封面`}>
+		<span slot="title">{$result.title}</span>
 		<!-- <span slot="details">作者：{result.authur}</span> -->
 		<div slot="actions" class="flex justify-around">
 			<Button on:click={() => restart()}>重新測驗</Button>
 			<Button>
-				<a href={`${booksBaseUrl}/products/${result.id}`} target="_blank">博客來連結</a>
+				<a href={`${booksBaseUrl}/products/${$result.id}`} target="_blank">博客來連結</a>
 			</Button>
 		</div>
 	</Result>
