@@ -7,11 +7,11 @@
 <div class="overflow-hidden bg-sky-100 min-h-screen flex flex-col">
 	<Header />
 	<main
-		class="grow py-4 px-2 shrink basis-auto min-h-0 flex flex-col items-center justify-start mx-auto"
+		class="grow py-4 px-2 shrink basis-auto min-h-0 flex max-w-lg flex-col items-center justify-start mx-auto"
 	>
 		<slot />
 	</main>
-	<footer class="mt-auto">
+	<!-- <footer class="mt-auto">
 		<img class="mx-auto max-w-sm" src={lnmc} alt="lnmc" />
-	</footer>
+	</footer> -->
 </div>
