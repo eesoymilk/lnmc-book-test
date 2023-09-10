@@ -1,3 +1,104 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
-export const prerender = true;
+import type { BookTestData } from '../types';
+import type { PageLoad } from './$types';
+
+export const load: PageLoad = async (): Promise<BookTestData> => {
+	return {
+		questions: [
+			{
+				body: '星期六早晨，窗簾外的光線照進房間，你望著灑落地面的光線，覺得外面的天氣應該是...',
+				choices: [
+					{
+						label: 'A',
+						body: '豔陽高照，光線在地面上彷彿融化的水',
+						bookIds: ['0010937927', '0010960353', '0010955357', '0010964032']
+					},
+					{
+						label: 'B',
+						body: '細雨綿綿，柔和的陽光在水氣之間散開',
+						bookIds: ['0010941981', '0010956474', '0010876131', '0010886823']
+					}
+				]
+			},
+			{
+				body: '下午，在天氣舒適多了之後，你決定帶著新買的書，去附近的店家坐坐，享受假日時光，你帶著書走進了...',
+				choices: [
+					{
+						label: 'A',
+						body: '提供好喝咖啡、環境明亮的咖啡廳',
+						bookIds: ['0010937927', '0010960353', '0010941981', '0010956474']
+					},
+					{
+						label: 'B',
+						body: '充滿懷舊氛圍、店員友善的小餐館',
+						bookIds: ['0010955357', '0010964032', '0010876131', '0010886823']
+					}
+				]
+			},
+			{
+				body: '傍晚回家的路上，你走在無人的巷弄中，突然聽到後方傳來一陣怪聲響，你轉頭去看，眼前只有無人的街道，你心中升起一個想法...',
+				choices: [
+					{
+						label: 'A',
+						body: '提供好喝咖啡、環境明亮的咖啡廳',
+						bookIds: ['0010937927', '0010955357', '0010941981', '0010876131']
+					},
+					{
+						label: 'B',
+						body: '充滿懷舊氛圍、店員友善的小餐館',
+						bookIds: ['0010960353', '0010964032', '0010956474', '0010886823']
+					}
+				]
+			}
+		],
+		books: [
+			{
+				id: '0010937927',
+				title: '子彈是餘生',
+				authur: '寺尾哲也',
+				imagePath: 'img/001/093/79/0010937927.jpg'
+			},
+			{
+				id: '0010960353',
+				title: '一袋米要扛幾樓',
+				authur: '洪萬達',
+				imagePath: 'img/001/096/03/0010960353.jpg'
+			},
+			{
+				id: '0010955357',
+				title: '電擊女孩',
+				authur: '徐立妍',
+				imagePath: 'img/001/095/53/0010955357.jpg'
+			},
+			{
+				id: '0010964032',
+				title: '四維街一號',
+				authur: '楊双子',
+				imagePath: 'img/001/096/40/0010964032.jpg'
+			},
+			{
+				id: '0010941981',
+				title: '少女同志，向敵人開槍吧',
+				authur: '逢坂冬馬',
+				imagePath: 'img/001/094/19/0010941981.jpg'
+			},
+			{
+				id: '0010956474',
+				title: '海風酒店',
+				authur: '吳明益',
+				imagePath: 'img/001/095/64/0010956474.jpg'
+			},
+			{
+				id: '0010876131',
+				title: '殖民地之旅（瀟湘神）',
+				authur: '瀟湘神',
+				imagePath: 'img/001/087/61/0010876131.jpg'
+			},
+			{
+				id: '0010886823',
+				title: '老派少女購物路線',
+				authur: '洪愛珠',
+				imagePath: 'img/001/088/68/0010886823.jpg'
+			}
+		]
+	};
+};

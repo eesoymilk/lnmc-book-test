@@ -1,53 +1,17 @@
-<script>
-	import Header from './Header.svelte';
+<script lang="ts">
 	import './styles.css';
+	import Header from './Header.svelte';
+	import lnmc from '$lib/images/lnmc.jpg';
 </script>
 
-<div class="app">
+<div class="app bg-sky-100 min-h-screen flex flex-col">
 	<Header />
-
-	<main>
+	<main
+		class="grow py-4 shrink basis-auto min-h-0 flex flex-col items-center justify-start w-96 mx-auto"
+	>
 		<slot />
 	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	<footer class="mt-auto">
+		<img class="mx-auto max-w-sm" src={lnmc} alt="lnmc" />
 	</footer>
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
