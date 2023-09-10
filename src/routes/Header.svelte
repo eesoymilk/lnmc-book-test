@@ -41,7 +41,7 @@
 		<ul class="text-xl h-full font-semibold flex items-center gap-2">
 			{#each navItems as navItem}
 				<li class="flex items-center">
-					<a href="/" target="_blank">
+					<a href={navItem.url} target="_blank">
 						{#if navItem.icon}
 							<Icon {...navItem.icon} height="32px" />
 						{/if}
