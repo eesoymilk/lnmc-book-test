@@ -20,3 +20,5 @@ export interface BookTestData {
 	questions: Question[];
 	books: Book[];
 }
+
+export type Answers = number[] | undefined;
