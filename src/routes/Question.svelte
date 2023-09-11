@@ -1,4 +1,4 @@
-<div class="font-bold text-lg text-center whitespace-pre-wrap">
+<div class="font-bold text-sky-950 text-lg text-center whitespace-pre-wrap">
 	<slot name="body" />
 </div>
 <div class="text-lg font-medium w-full">

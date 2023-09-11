@@ -14,6 +14,7 @@ export interface Book {
 	title: string;
 	authur: string;
 	imagePath: string;
+	introduction: string;
 }
 
 export interface BookTestData {

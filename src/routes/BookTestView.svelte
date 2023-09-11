@@ -1,5 +1,5 @@
 {#if $$slots.hint}
-	<div class="font-light text-sm text-center text-neutral-500">
+	<div class="font-medium text-center text-orange-500">
 		<slot name="hint" />
 	</div>
 {/if}

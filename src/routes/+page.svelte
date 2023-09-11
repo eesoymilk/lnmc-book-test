@@ -4,7 +4,6 @@
 	import Button from './Button.svelte';
 	import Question from './Question.svelte';
 	import ChoiceButton from './ChoiceButton.svelte';
-	import Result from './Result.svelte';
 	import BookTestView from './BookTestView.svelte';
 	import Actions from './Actions.svelte';
 
@@ -71,9 +70,19 @@
 	</BookTestView>
 {:else if $result}
 	<BookTestView>
-		<div slot="hint" class="text-lg text-neutral-500">測驗結果</div>
-		<div class="text-center font-bold text-2xl">
-			{$result.title}
+		<div slot="hint">測驗結果</div>
+		<div class="text-center flex flex-col font-bold">
+			<div class="text-2xl text-sky-950">
+				{$result.title}
+			</div>
+			<div class="text-base font-normal">
+				{$result.authur}
+			</div>
+		</div>
+		<div
+			class="whitespace-pre-wrap text-center italic text-neutral-500 text-sm"
+		>
+			{$result.introduction}
 		</div>
 		<div class="rounded-lg overflow-hidden">
 			<picture>
