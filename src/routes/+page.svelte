@@ -8,31 +8,6 @@
 	import Actions from './Actions.svelte';
 
 	const booksBaseUrl = 'https://www.books.com.tw';
-
-	// $: currentQuestion = bookTestData.questions.at($answers.length);
-	// $: if ($answers.length >= bookTestData.questions.length) {
-	// 	const resultBookIds = bookTestData.questions.reduce(
-	// 		(bookIds, question, i) =>
-	// 			bookIds.filter((el) => question.choices[$answers[i]].bookIds.includes(el)),
-	// 		bookTestData.books.map((el) => el.id)
-	// 	);
-
-	// 	console.log(resultBookIds);
-
-	// 	if (resultBookIds.length > 1) {
-	// 		console.error('more than one book');
-	// 	} else if (resultBookIds.length === 0) {
-	// 		console.error('no result');
-	// 	} else {
-	// 		result.set(bookTestData.books.find((el) => el.id === resultBookIds[0]));
-	// 	}
-	// }
-
-	// const answer = (choiceIndex: number) => answers.update((prev) => [...prev, choiceIndex]);
-	// const restart = () => {
-	// 	answers.set([]);
-	// 	result.set(undefined);
-	// };
 </script>
 
 <svelte:head>
@@ -92,12 +67,12 @@
 				/>
 			</picture>
 		</div>
-		<div slot="actions" class="flex justify-around">
+		<Actions slot="actions">
 			<Button on:click={() => answers.restart()}>重新測驗</Button>
 			<a href={`${booksBaseUrl}/products/${$result.id}`} target="_blank">
 				<Button>博客來連結</Button>
 			</a>
-		</div>
+		</Actions>
 	</BookTestView>
 {:else}
 	<div>error</div>

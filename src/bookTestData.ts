@@ -132,7 +132,7 @@ export const bookTestData: BookTestData = {
 		},
 		{
 			id: '0010876131',
-			title: '殖民地之旅（瀟湘神）',
+			title: '殖民地之旅',
 			authur: '瀟湘神',
 			imagePath: 'img/001/087/61/0010876131.jpg',
 			introduction: `我們到達的是曾經離開的，我們失去的就是我們想追求的。
