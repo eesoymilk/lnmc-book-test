@@ -1,18 +1,26 @@
 <script lang="ts">
-	import { bookTestData } from '../bookTestData';
-	import { answers, currentQuestion, result } from '../stores';
 	import Button from './Button.svelte';
 	import Question from './Question.svelte';
 	import ChoiceButton from './ChoiceButton.svelte';
 	import BookTestView from './BookTestView.svelte';
 	import Actions from './Actions.svelte';
 
+	import fishes from '$lib/images/fishes.png';
+	import { bookTestData } from '../bookTestData';
+	import { answers, currentQuestion, result } from '../stores';
+
 	const booksBaseUrl = 'https://www.books.com.tw';
+	const metaTitle = '文新社 ‧ 書本心理測驗';
+	const metaDescription =
+		'回答幾個簡單的情境題，來測驗一下自己適合讀哪一本書吧！';
 </script>
 
 <svelte:head>
-	<title>文新社 | 書本心理測驗</title>
-	<meta name="description" content="文新社 | 書本心理測驗" />
+	<title>{metaTitle}</title>
+	<meta name="description" content={metaDescription} />
+	<meta property="og:title" content={metaTitle} />
+	<meta property="og:image" content={fishes} />
+	<meta property="og:description" content={metaDescription} />
 </svelte:head>
 
 {#if !$answers}
