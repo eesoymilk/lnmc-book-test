@@ -20,6 +20,7 @@
 	<meta name="description" content={metaDescription} />
 	<meta property="og:title" content={metaTitle} />
 	<meta property="og:image" content={fishes} />
+	<meta property="og:image:alt" content="文新社封面" />
 	<meta property="og:description" content={metaDescription} />
 </svelte:head>
 
