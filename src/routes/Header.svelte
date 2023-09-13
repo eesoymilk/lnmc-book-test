@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
-	import lnmcLogo from '$lib/images/lnmc_logo.jpg';
+	import lnmcLogo from '$lib/images/lnmc_logo.webp';
 	import { answers } from '../stores';
 </script>
 

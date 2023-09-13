@@ -1,5 +1,5 @@
 <script lang="ts">
-	import fishes from '$lib/images/fishes.png';
+	import fishes from '$lib/images/fishes.webp';
 	import Icon from '@iconify/svelte';
 
 	interface NavItem {
