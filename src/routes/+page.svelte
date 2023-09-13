@@ -57,13 +57,21 @@
 		<div slot="hint">根據你的選擇推測......</div>
 		<div class="text-center flex flex-col gap-4">
 			<div class="flex items-end justify-center flex-wrap">
-				<div class="pr-2">你可能會喜歡</div>
-				<div class="text-xl font-bold underline-offset-4 text-[#084884]">
-					{$result.authur}
+				<div>你可能會喜歡</div>
+				<div class="flex items-end">
+					<span
+						class="text-xl px-2 font-bold underline-offset-4 text-[#084884]"
+					>
+						{$result.authur}
+					</span>
+					<span>的</span>
 				</div>
-				<div class="pl-2">的</div>
-				<div class="text-2xl font-bold text-[#084884]">《{$result.title}》</div>
-				<div>！</div>
+				<div class="flex items-end">
+					<span class="text-2xl font-bold text-[#084884]">
+						《{$result.title}》
+					</span>
+					<span>！</span>
+				</div>
 			</div>
 			<div class="">{$result.description}</div>
 		</div>
