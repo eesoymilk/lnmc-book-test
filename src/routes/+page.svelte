@@ -5,7 +5,7 @@
 	import BookTestView from './BookTestView.svelte';
 	import Actions from './Actions.svelte';
 
-	import fishes from '$lib/images/fishes.png';
+	import fishes from '$lib/images/fishes.webp';
 	import { bookTestData } from '../bookTestData';
 	import { answers, currentQuestion, result } from '../stores';
 
