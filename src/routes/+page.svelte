@@ -54,19 +54,18 @@
 	</BookTestView>
 {:else if $result}
 	<BookTestView>
-		<div slot="hint">測驗結果</div>
-		<div class="text-center flex flex-col font-bold">
-			<div class="text-2xl text-sky-950">
-				{$result.title}
+		<div slot="hint">根據你的選擇推測......</div>
+		<div class="text-center flex flex-col gap-4">
+			<div class="flex items-end justify-center flex-wrap">
+				<div class="pr-2">你可能會喜歡</div>
+				<div class="text-xl font-bold underline-offset-4 text-[#084884]">
+					{$result.authur}
+				</div>
+				<div class="pl-2">的</div>
+				<div class="text-2xl font-bold text-[#084884]">《{$result.title}》</div>
+				<div>！</div>
 			</div>
-			<div class="text-base font-normal">
-				{$result.authur}
-			</div>
-		</div>
-		<div
-			class="whitespace-pre-wrap text-center italic text-neutral-500 text-sm"
-		>
-			{$result.introduction}
+			<div class="">{$result.description}</div>
 		</div>
 		<div class="rounded-lg overflow-hidden">
 			<picture>
@@ -75,6 +74,11 @@
 					alt={`${$result.title}封面`}
 				/>
 			</picture>
+		</div>
+		<div
+			class="whitespace-pre-wrap text-center italic text-neutral-500 text-sm"
+		>
+			{$result.introduction}
 		</div>
 		<Actions slot="actions">
 			<Button on:click={() => answers.restart()}>重新測驗</Button>
