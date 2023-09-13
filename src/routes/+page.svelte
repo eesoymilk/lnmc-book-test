@@ -36,10 +36,7 @@
 {:else if $currentQuestion}
 	<BookTestView>
 		<span slot="hint">
-			<span>
-				{$answers.length + 1}
-			</span>
-			/ {bookTestData.questions.length}
+			{$answers.length + 1} / {bookTestData.questions.length}
 		</span>
 		<Question>
 			<span slot="body">
