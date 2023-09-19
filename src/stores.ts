@@ -7,10 +7,17 @@ import { bookTestData } from './bookTestData';
 
 const isBrowser = () => typeof window !== 'undefined';
 
-const readStorageAnswers = (): Answers =>
-	isBrowser() &&
-	localStorage.answers &&
-	[...localStorage.answers].map((el) => parseInt(el));
+const readStorageAnswers = (): Answers => {
+	try {
+		return (
+			isBrowser() &&
+			localStorage.answers &&
+			[...localStorage.answers].map((el) => parseInt(el))
+		);
+	} catch (e) {
+		console.error(e);
+	}
+};
 
 const createAnswers = () => {
 	const answersStore = writable<number[] | undefined>(readStorageAnswers());
