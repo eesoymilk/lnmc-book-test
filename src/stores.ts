@@ -17,7 +17,7 @@ const readStorageAnswers = (): Answers => {
 };
 
 const createAnswers = () => {
-	const answersStore = writable<number[] | undefined>(readStorageAnswers());
+	const answersStore = writable<Answers>(readStorageAnswers());
 	const { subscribe, set, update } = answersStore;
 
 	return {
