@@ -8,6 +8,7 @@
 	import fishes from '$lib/images/fishes.webp';
 	import { bookTestData } from '../bookTestData';
 	import { answers, currentQuestion, result } from '../stores';
+	import { fade } from 'svelte/transition';
 
 	const booksBaseUrl = 'https://www.books.com.tw';
 	const metaTitle = '文新社 ‧ 書本心理測驗';
@@ -25,15 +26,13 @@
 </svelte:head>
 
 {#if !$answers}
-	<BookTestView>
-		<div class="m-auto">
-			<Actions>
-				<Button on:click={() => answers.start()}>
-					<span class="text-4xl font-medium p-2"> 開始測驗 </span>
-				</Button>
-			</Actions>
-		</div>
-	</BookTestView>
+	<div class="m-auto">
+		<Actions>
+			<Button on:click={() => answers.start()}>
+				<span class="text-4xl font-medium p-2"> 開始測驗 </span>
+			</Button>
+		</Actions>
+	</div>
 {:else if $currentQuestion}
 	<BookTestView>
 		<span slot="hint">
@@ -54,26 +53,19 @@
 	</BookTestView>
 {:else if $result}
 	<BookTestView>
-		<div slot="hint">根據你的選擇推測......</div>
+		<div slot="hint" class="text-xl">根據你的選擇推測......</div>
 		<div class="text-center flex flex-col gap-4">
 			<div class="flex items-end justify-center flex-wrap">
 				<div>你可能會喜歡</div>
-				<div class="flex items-end">
-					<span
-						class="text-xl px-2 font-bold underline-offset-4 text-[#084884]"
-					>
-						{$result.authur}
-					</span>
-					<span>的</span>
+				<div class="text-xl px-2 font-bold text-[#084884]">
+					{$result.authur}
 				</div>
-				<div class="flex items-end">
-					<span class="text-2xl font-bold text-[#084884]">
-						《{$result.title}》
-					</span>
-					<span>！</span>
+				<div>的</div>
+				<div class="flex items-end text-3xl font-bold text-[#084884]">
+					《{$result.title}》
 				</div>
 			</div>
-			<div class="">{$result.description}</div>
+			<div>{$result.description}</div>
 		</div>
 		<div class="rounded-lg overflow-hidden">
 			<picture>
