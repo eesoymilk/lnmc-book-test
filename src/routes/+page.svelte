@@ -8,20 +8,22 @@
 	import fishes from '$lib/images/fishes.webp';
 	import { bookTestData } from '../bookTestData';
 	import { answers, currentQuestion, result } from '../stores';
-	import { fade } from 'svelte/transition';
 
 	const booksBaseUrl = 'https://www.books.com.tw';
 	const metaTitle = '文新社 ‧ 書本心理測驗';
 	const metaDescription =
 		'回答幾個簡單的情境題，來測驗一下自己適合讀哪一本書吧！';
+	const metaImage =
+		'https://cdn.discordapp.com/attachments/874556062815100940/1155041075342348409/lnmc_logo.webp';
+	const metaImageAlt = '文新社封面';
 </script>
 
 <svelte:head>
 	<title>{metaTitle}</title>
 	<meta name="description" content={metaDescription} />
 	<meta property="og:title" content={metaTitle} />
-	<meta property="og:image" content={fishes} />
-	<meta property="og:image:alt" content="文新社封面" />
+	<meta property="og:image" content={metaImage} />
+	<meta property="og:image:alt" content={metaImageAlt} />
 	<meta property="og:description" content={metaDescription} />
 </svelte:head>
 
