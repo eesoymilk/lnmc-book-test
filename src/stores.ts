@@ -1,19 +1,23 @@
 import { derived, writable } from 'svelte/store';
-import type { Answers, Book } from './types';
+import type { Answers } from './types';
 import { bookTestData } from './bookTestData';
-
-// export const answers = writable<number[]>([]);
-// export const result = writable<Book | undefined>(undefined);
 
 const isBrowser = () => typeof window !== 'undefined';
 
-const readStorageAnswers = (): Answers =>
-	isBrowser() &&
-	localStorage.answers &&
-	[...localStorage.answers].map((el) => parseInt(el));
+const readStorageAnswers = (): Answers => {
+	try {
+		return (
+			isBrowser() &&
+			localStorage.answers &&
+			[...localStorage.answers].map((el) => parseInt(el))
+		);
+	} catch (e) {
+		console.error(e);
+	}
+};
 
 const createAnswers = () => {
-	const answersStore = writable<number[] | undefined>(readStorageAnswers());
+	const answersStore = writable<Answers>(readStorageAnswers());
 	const { subscribe, set, update } = answersStore;
 
 	return {
